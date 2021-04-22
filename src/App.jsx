@@ -26,8 +26,10 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了</p>
         <ul>
-          <li>あああ</li>
-          <button>戻す</button>
+          <div className="list-row">
+            <li>あああ</li>
+            <button>戻す</button>
+          </div>
         </ul>
       </div>
     </>
