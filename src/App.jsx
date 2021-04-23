@@ -57,10 +57,10 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了</p>
         <ul>
-          {completetodos.map((todo) => {
+          {completetodos.map((todos) => {
             return (
-              <div key={todo} className="list-row">
-                <li>{todo}</li>
+              <div key={todos} className="list-row">
+                <li>{todos}</li>
                 <button>戻す</button>
               </div>
             );
