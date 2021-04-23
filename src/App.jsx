@@ -30,6 +30,15 @@ export const App = () => {
     setCompleteTodos(newcompleteTodos);
   };
 
+  const onClickBack = (index) => {
+    const newcompleteTodos = [...completetodos];
+    newcompleteTodos.splice(index, 1);
+
+    const newIncompleteTodos = [...incompleteTodos, completetodos[index]];
+    setCompleteTodos(newIncompleteTodos);
+    setIncompleteTodos(newIncompleteTodos);
+  };
+
   return (
     <>
       <div>
@@ -57,11 +66,11 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了</p>
         <ul>
-          {completetodos.map((todos) => {
+          {completetodos.map((todos, index) => {
             return (
               <div key={todos} className="list-row">
                 <li>{todos}</li>
-                <button>戻す</button>
+                <button onClick={() => onClickBack(index)}>戻す</button>
               </div>
             );
           })}
