@@ -59,8 +59,8 @@ export const App = () => {
         <ul>
           {completetodos.map((todo) => {
             return (
-              <div className="list-row">
-                <li>あああ</li>
+              <div key={todo} className="list-row">
+                <li>{todo}</li>
                 <button>戻す</button>
               </div>
             );
