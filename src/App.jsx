@@ -9,7 +9,16 @@ export const App = () => {
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
   const onClickAdd = () => {
-    alert(todoText);
+    if (todoText === "") return;
+    const newTodos = [...incompleteTodos, todoText];
+    setIncompleteTodos(newTodos);
+    setTodoText("");
+  };
+
+  const onClickdelete = (index) => {
+    const newTodos = [...incompleteTodos];
+    newTodos.splice(index, 1);
+    setIncompleteTodos(newTodos);
   };
 
   return (
@@ -25,21 +34,15 @@ export const App = () => {
       <div className="incomplete-area">
         <p className="input-area">未完了</p>
         <ul>
-          {incompleteTodos.map((todo) => {
+          {incompleteTodos.map((todo, index) => {
             return (
               <div key={todo} className="list-row">
-                <li>あああ</li>
+                <li>{todo}</li>
                 <button>完了</button>
-                <button>削除</button>
+                <button onClick={() => onClickdelete(index)}>削除</button>
               </div>
             );
           })}
-
-          <div className="list-row">
-            <li>あああ</li>
-            <button>完了</button>
-            <button>削除</button>
-          </div>
         </ul>
       </div>
       <div className="complete-area">
@@ -53,7 +56,6 @@ export const App = () => {
               </div>
             );
           })}
-          ;
         </ul>
       </div>
     </>
